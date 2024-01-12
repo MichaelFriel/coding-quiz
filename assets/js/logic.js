@@ -1,13 +1,14 @@
 
 
-// Create questions and answer 
-// Find all of the required elements through query selectors.
+
+// Create questions and answer - Done
+// Find all of the required elements through query selectors. - Done
 // Write function which creates h2 elements and divs with choices. It should also display answer.
 // For loop which goes through each question until time has run out.
 // Empty content and then add the next question.
 // Log score to local storage (variable which is added to)
 // Pull this information from local storage and add to highscores page.
-// Set timer which increments down by 1 every 1000ms. 
+// Set timer which increments down by 1 every 1000ms. - Done
 // Remove 10 from it every time a question is answered incorrectly.
 // End the game when the timer variable hits 0.
 // Redirect to the highscores page once this is completed.
