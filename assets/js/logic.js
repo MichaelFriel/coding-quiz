@@ -1,4 +1,40 @@
+const questionContainerEl = document.querySelector('#questions');
+const startQuizButtonEl = document.querySelector('#start');
+const timerEl = document.querySelector('#time');
+const timerTextEl = document.querySelector('.timer');
 
+const currentQuestionIndex = 0;
+// timer
+
+function countdown () {
+
+let timeLeft = 60
+
+
+const timeInterval = setInterval(function () {
+    timeLeft--;
+    timerEl.textContent = timeLeft;
+
+    if(timeLeft === 0) {
+        clearInterval(timeInterval);
+
+        timerEl.textContent = "Time is up!";
+      }
+}
+,100);
+}
+
+countdown();
+
+
+
+
+    // const questionChoicesContainer = document.createElement("div");
+    // questionChoices.textContent = question.choices
+
+    //For loop
+        // For every item in the questions array, create a button.
+        // For every button, add text content of questions[i].choices[j]
 
 
 // Create questions and answer - Done
@@ -18,3 +54,8 @@
 // Timer to go up by 5 seconds with a correct answer
 // Add more questions (50-100) and randomise the chosen questions each time, for longevity of game.
 // Timer to turn red when the user has less than 10 seconds left (when var < 10, style:red)
+
+
+
+// Thoughts
+// Add a Current Question Inde
