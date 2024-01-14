@@ -3,7 +3,8 @@ const startQuizButtonEl = document.querySelector('#start');
 const timerEl = document.querySelector('#time');
 const timerTextEl = document.querySelector('.timer');
 
-const currentQuestionIndex = 0;
+let currentQuestionIndex = 0;
+const question = questions[currentQuestionIndex];
 // timer
 
 function countdown () {
@@ -24,10 +25,38 @@ const timeInterval = setInterval(function () {
 ,100);
 }
 
-countdown();
 
 
+function addQuestion (question) {
+    questionContainerEl.innerHTML = "";
 
+
+    const questionTitle = document.createElement("h2");
+    questionTitle.textContent = question.title;
+    questionContainerEl.appendChild(questionTitle);
+
+    const questionChoices = document.createElement("div");
+    question.choices.forEach(choice => {
+        const choiceElement = document.createElement("button"); 
+        choiceElement.textContent = choice;
+        questionChoices.appendChild(choiceElement);
+    });
+
+    questionContainerEl.appendChild(questionChoices);
+
+    console.log(questionContainerEl);
+
+}
+
+for (let i = 0; i < questions.length; i++) {
+    addQuestion(questions[i])
+    }
+
+    startQuizButtonEl.addEventListener("click", startQuiz)
+
+//     console.log(questionContainerEl);
+
+    
 
     // const questionChoicesContainer = document.createElement("div");
     // questionChoices.textContent = question.choices
