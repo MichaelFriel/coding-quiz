@@ -141,6 +141,11 @@ function saveScores () {
     let userInitials = userInitialsEl.value;
     let currentScore = score
 
+    if (userInitials.length < 2 || userInitials.length > 3) {
+        alert("Initials field must contain 2 or 3 characters");
+        return;
+    }
+
     highScores.push({
         initials: userInitials,
         score: currentScore
