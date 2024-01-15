@@ -53,4 +53,3 @@ From the highscores leaderboard page, you can either clear your highscores or pl
 
 Please see Mit License contained within repository.
 
-![Alt text](image.png)
