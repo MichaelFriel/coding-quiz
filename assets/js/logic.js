@@ -152,6 +152,8 @@ function saveScores () {
     });
 
     localStorage.setItem("High Scores", JSON.stringify(highScores));
+
+    window.location.href = "/highscores.html"
 }
 
 
@@ -160,5 +162,3 @@ event.preventDefault();
 
 saveScores();
 });
-
-
