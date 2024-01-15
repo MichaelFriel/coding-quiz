@@ -51,25 +51,21 @@ function checkAnswer (selectedChoice) {
         timeLeft-= 10;
 
         if (timeLeft < 0) {
-            timeLeft = 0; endQuiz();
+            timeLeft = 0; 
+            endQuiz();
         }
     }
+
+    currentQuestionIndex += 1
+
+    if (currentQuestionIndex < questions.length) {
+        addQuestion(questions[currentQuestionIndex]);
+    } else {
+        endQuiz();
     }
 
-
-
-function changeQuestion () {
-
-    // when button is clicked, check whether or not it is the correct answer.
-    // if answer is incorrect, then remove 10 seconds from time remaining.
-    // if answer is correct, incremement the score variable by 1. (if choices === answer, then score++.)
-    // once clicked, run addquestion function and increment currentQuestionIndex each time.
-}
-
-function reduceTime (x,y) {
-return x - y
-}
-
+    console.log(score);
+    }
 
 
 function addQuestion (question) {
@@ -94,8 +90,6 @@ function addQuestion (question) {
 
 
     questionContainerEl.appendChild(questionChoices);
-
-    console.log(questionContainerEl);
 
 }
 
