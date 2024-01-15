@@ -1,3 +1,5 @@
+// Element variables
+
 const questionContainerEl = document.querySelector('#questions');
 const startQuizButtonEl = document.querySelector('#start');
 const timerEl = document.querySelector('#time');
@@ -7,12 +9,14 @@ const endScreenEl = document.querySelector('#end-screen');
 const finalScoreEl = document.querySelector('#final-score');
 const feedbackEl = document.querySelector('#feedback');
 
-
+// Variables
 let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 60
-const question = questions[currentQuestionIndex];
-// timer
+let question = questions[currentQuestionIndex];
+
+
+// timer function, which counts down in intervals of 1 second and then returns Time is Up text and initialises endQuiz function when the timer hits 0
 
 function countdown () {
 
@@ -31,6 +35,7 @@ const timeInterval = setInterval(function () {
 ,1000);
 }
 
+// Start quiz function, which adds the first question and hides the start CTA.
 
 function startQuiz () {
     currentQuestionIndex = 0;
@@ -43,12 +48,15 @@ function startQuiz () {
 
 }
 
+// End Quiz function, which hides the questions and shows the end screen.
 function endQuiz () {
 
     questionContainerEl.classList.add("hide");
     endScreenEl.classList.remove("hide");
     finalScoreEl.textContent = score;
 }
+
+// Provide Feedback function, which checks to see if the selected choice matches the answer and tells the user if they were right or wrong.
 
 function provideFeedback(isCorrect) {
     if (isCorrect) {
@@ -62,6 +70,9 @@ function provideFeedback(isCorrect) {
     }
     ,4000);
 }
+
+// This function creates a variable which finds the correct answer and checks to see if it matches the user choice.
+// It then adds 1 to the currentQuestionIndex ad moves through the AddQuestion functions until endQuiz is initialised.
 
 function checkAnswer (selectedChoice) {
     let correctAnswer = questions[currentQuestionIndex].answer
@@ -79,7 +90,6 @@ function checkAnswer (selectedChoice) {
             endQuiz();
         }
         
-    
 
     currentQuestionIndex += 1
 
@@ -92,6 +102,8 @@ function checkAnswer (selectedChoice) {
     console.log(score);
     }
 
+
+// Add question function adds h2 and divs which contain the question information. For each one, the checkAnswer function is initialised and the choice parameter is added to it.
 
 function addQuestion (question) {
     questionContainerEl.innerHTML = "";
@@ -118,10 +130,6 @@ function addQuestion (question) {
 
 }
 
-// for (let i = 0; i < questions.length; i++) {
-//     addQuestion(questions[i])
-//     }
-
     startQuizButtonEl.addEventListener("click", startQuiz)
 
 //     console.log(questionContainerEl);
@@ -134,7 +142,7 @@ function addQuestion (question) {
 
 // Create questions and answer - Done
 // Find all of the required elements through query selectors. - Done
-// Write function which creates h2 elements and divs with choices. It should also display answer.
+// Write function which creates h2 elements and divs with choices. It should also display answer. - Done
 // For loop which goes through each question until time has run out.
 // Empty content and then add the next question.
 // Log score to local storage (variable which is added to)
