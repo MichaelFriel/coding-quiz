@@ -85,9 +85,11 @@ function checkAnswer (selectedChoice) {
 
     if (selectedChoice === correctAnswer){
         score+= 10;
+        document.getElementById("right").play();
     } else {
-        timeLeft-= 10;}
-    
+        timeLeft-= 10;
+        document.getElementById("wrong").play();}
+        
     if (timeLeft <=0) {
             endQuiz();
         }
