@@ -5,6 +5,7 @@ const timerTextEl = document.querySelector('.timer');
 const quizButtonsEl = document.querySelector('.questionChoices');
 const endScreenEl = document.querySelector('#end-screen');
 const finalScoreEl = document.querySelector('#final-score');
+const feedbackEl = document.querySelector('#feedback');
 
 
 let currentQuestionIndex = 0;
@@ -27,7 +28,7 @@ const timeInterval = setInterval(function () {
         endQuiz();
       }
 }
-,100);
+,1000);
 }
 
 
@@ -47,23 +48,33 @@ function endQuiz () {
     questionContainerEl.classList.add("hide");
     endScreenEl.classList.remove("hide");
     finalScoreEl.textContent = score;
-
-
-    // Remove hide class from end screen
-    // Add hide class back to questions container
-    // Reset timer to 0
-    // Empty content in final score div and add textcontent = score
 }
 
+function provideFeedback(isCorrect) {
+    if (isCorrect) {
+        feedbackEl.textContent = "Correct!"
+    } else {
+        feedbackEl.textContent = "Wrong!"
+    }
+
+    setTimeout(function() {
+        feedbackEl.textContent = ""
+    }
+    ,4000);
+}
 
 function checkAnswer (selectedChoice) {
     let correctAnswer = questions[currentQuestionIndex].answer
+    let isCorrect = selectedChoice === correctAnswer;
+
+    provideFeedback(isCorrect);
+   
 
     if (selectedChoice === correctAnswer){
         score+= 10;
     } else {
         timeLeft-= 10;}
-
+    
     if (timeLeft <=0) {
             endQuiz();
         }
