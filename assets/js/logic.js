@@ -2,6 +2,8 @@ const questionContainerEl = document.querySelector('#questions');
 const startQuizButtonEl = document.querySelector('#start');
 const timerEl = document.querySelector('#time');
 const timerTextEl = document.querySelector('.timer');
+const quizButtonsEl = questionContainerEl.querySelectorAll('.button');
+
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -44,6 +46,12 @@ function changeQuestion () {
     // once clicked, run addquestion function and increment currentQuestionIndex each time.
 }
 
+function reduceTime (x,y) {
+return x - y
+}
+
+
+
 function addQuestion (question) {
     questionContainerEl.innerHTML = "";
 
@@ -57,7 +65,9 @@ function addQuestion (question) {
         const choiceElement = document.createElement("button"); 
         choiceElement.textContent = choice;
         questionChoices.appendChild(choiceElement);
+        choiceElement.classList.add("questionChoices")
     });
+
 
     questionContainerEl.appendChild(questionChoices);
 
@@ -77,10 +87,6 @@ for (let i = 0; i < questions.length; i++) {
 
     // const questionChoicesContainer = document.createElement("div");
     // questionChoices.textContent = question.choices
-
-    //For loop
-        // For every item in the questions array, create a button.
-        // For every button, add text content of questions[i].choices[j]
 
 
 // Create questions and answer - Done
