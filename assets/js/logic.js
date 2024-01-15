@@ -155,7 +155,7 @@ function saveScores () {
 
     localStorage.setItem("High Scores", JSON.stringify(highScores));
 
-    window.location.href = "/highscores.html"
+    window.location.href = "./highscores.html"
 }
 
 
