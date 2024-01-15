@@ -4,6 +4,7 @@ const timerEl = document.querySelector('#time');
 const timerTextEl = document.querySelector('.timer');
 
 let currentQuestionIndex = 0;
+let score = 0;
 const question = questions[currentQuestionIndex];
 // timer
 
@@ -22,10 +23,26 @@ const timeInterval = setInterval(function () {
         timerEl.textContent = "Time is up!";
       }
 }
-,100);
+,1000);
 }
 
 
+function startQuiz (event) {
+    currentQuestionIndex = 0;
+    timeLeft = 60;
+    countdown();
+    addQuestion(questions[currentQuestionIndex]);
+    startQuizButtonEl.style.display = 'none';
+    questionContainerEl.classList.remove("hide");
+
+}
+
+function changeQuestion () {
+    // when button is clicked, check whether or not it is the correct answer.
+    // if answer is incorrect, then remove 10 seconds from time remaining.
+    // if answer is correct, incremement the score variable by 1. (if choices === answer, then score++.)
+    // once clicked, run addquestion function and increment currentQuestionIndex each time.
+}
 
 function addQuestion (question) {
     questionContainerEl.innerHTML = "";
