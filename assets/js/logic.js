@@ -2,7 +2,9 @@ const questionContainerEl = document.querySelector('#questions');
 const startQuizButtonEl = document.querySelector('#start');
 const timerEl = document.querySelector('#time');
 const timerTextEl = document.querySelector('.timer');
-const quizButtonsEl = document.querySelector('.questionChoices')
+const quizButtonsEl = document.querySelector('.questionChoices');
+const endScreenEl = document.querySelector('#end-screen');
+const finalScoreEl = document.querySelector('#final-score');
 
 
 let currentQuestionIndex = 0;
@@ -14,23 +16,22 @@ const question = questions[currentQuestionIndex];
 function countdown () {
 
 
-
-
 const timeInterval = setInterval(function () {
     timeLeft--;
     timerEl.textContent = timeLeft;
 
-    if(timeLeft === 0) {
+    if(timeLeft <= 0) {
         clearInterval(timeInterval);
 
         timerEl.textContent = "Time is up!";
+        endQuiz();
       }
 }
-,1000);
+,100);
 }
 
 
-function startQuiz (event) {
+function startQuiz () {
     currentQuestionIndex = 0;
     timeLeft = 60;
     score = 0;
@@ -42,6 +43,12 @@ function startQuiz (event) {
 }
 
 function endQuiz () {
+
+    questionContainerEl.classList.add("hide");
+    endScreenEl.classList.remove("hide");
+    finalScoreEl.textContent = score;
+
+
     // Remove hide class from end screen
     // Add hide class back to questions container
     // Reset timer to 0
@@ -55,13 +62,13 @@ function checkAnswer (selectedChoice) {
     if (selectedChoice === correctAnswer){
         score+= 10;
     } else {
-        timeLeft-= 10;
+        timeLeft-= 10;}
 
-        if (timeLeft < 0) {
-            timeLeft = 0; 
+    if (timeLeft <=0) {
             endQuiz();
         }
-    }
+        
+    
 
     currentQuestionIndex += 1
 
