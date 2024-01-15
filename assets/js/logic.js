@@ -14,7 +14,7 @@ const userInitialsEl = document.querySelector('#initials')
 // Variables
 let currentQuestionIndex = 0;
 let score = 0;
-let timeLeft = 60
+let timeLeft = 90;
 let question = questions[currentQuestionIndex];
 
 
@@ -41,7 +41,7 @@ const timeInterval = setInterval(function () {
 
 function startQuiz () {
     currentQuestionIndex = 0;
-    timeLeft = 60;
+    timeLeft = 90;
     score = 0;
     countdown();
     addQuestion(questions[currentQuestionIndex]);
