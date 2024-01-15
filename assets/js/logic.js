@@ -136,7 +136,7 @@ function addQuestion (question) {
 
     startQuizButtonEl.addEventListener("click", startQuiz)
 
-// Event Listener and function for button submit.
+// Event Listener and function for button submit. When submit is clicked, it will check that the initials length is appropriate and then store the score in local storage. 
 
 function saveScores () {
     let highScores = JSON.parse(localStorage.getItem ("High Scores") || "[]");
@@ -155,10 +155,10 @@ function saveScores () {
 
     localStorage.setItem("High Scores", JSON.stringify(highScores));
 
-    window.location.href = "./highscores.html"
+    window.location.href = "./highscores.html";
 }
 
-
+// Submit button prevents standard form behaviour and then triggers saveScores function.
 submitButtonEl.addEventListener("click", function (event) {
 event.preventDefault();
 
