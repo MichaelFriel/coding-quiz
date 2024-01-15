@@ -37,8 +37,8 @@ The user flow is intuitive, with general guidance below:
 * This highscore is saved in local storage, which you can empty directly or use the Clear Highscores button.
 * The quiz can be taken a number of times, with scores ordered from highest to lowest. Keep going and challenge yourself to get 100 points!
 
-![Screenshot showing the game start screen ](assets/Images/gamestart.png)
-*A screenshot showing the Start Quiz page, with timer set to 0*
+![Screenshot showing the game start screen ](assets/Images/quiz-start.png)
+*A screenshot showing the Start Quiz page, with timer set to 90*
 
 ![Screenshot showing the questions and the timer having gone down](assets/Images/quiz-questions.png)
 *Here you can see a question, with four multiple choice answers. The timer has also begun to tick down.*
@@ -53,3 +53,4 @@ From the highscores leaderboard page, you can either clear your highscores or pl
 
 Please see Mit License contained within repository.
 
+![Alt text](image.png)
