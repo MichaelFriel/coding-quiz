@@ -41,6 +41,13 @@ function startQuiz (event) {
 
 }
 
+function endQuiz () {
+    // Remove hide class from end screen
+    // Add hide class back to questions container
+    // Reset timer to 0
+    // Empty content in final score div and add textcontent = score
+}
+
 
 function checkAnswer (selectedChoice) {
     let correctAnswer = questions[currentQuestionIndex].answer
@@ -93,9 +100,9 @@ function addQuestion (question) {
 
 }
 
-for (let i = 0; i < questions.length; i++) {
-    addQuestion(questions[i])
-    }
+// for (let i = 0; i < questions.length; i++) {
+//     addQuestion(questions[i])
+//     }
 
     startQuizButtonEl.addEventListener("click", startQuiz)
 
