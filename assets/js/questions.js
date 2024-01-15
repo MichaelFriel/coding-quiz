@@ -16,7 +16,7 @@ const questions = [
 
     {title: "Which of the following is a way to store data locally in a user's browser?",
     choices: ["A) Cookies","B) Session Storage","C) Local Storage","D) Both A & C","E) A, B & C"],
-    answer: ""
+    answer: "E) A, B & C"
     },
 
     {title: "What is the main purpose of minifying CSS and javascript files?",

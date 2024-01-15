@@ -136,15 +136,24 @@ function addQuestion (question) {
 
 // Event Listener and function for button submit.
 
+function saveScores () {
+    let highScores = JSON.parse(localStorage.getItem ("High Scores") || "[]");
+    let userInitials = userInitialsEl.value;
+    let currentScore = score
+
+    highScores.push({
+        initials: userInitials,
+        score: currentScore
+    });
+
+    localStorage.setItem("High Scores", JSON.stringify(highScores));
+}
+
+
 submitButtonEl.addEventListener("click", function (event) {
 event.preventDefault();
 
-let userDetails = {
-    initials: userInitialsEl.value,
-    score: score
-};
-
-localStorage.setItem("score",JSON.stringify(userDetails));
-})
+saveScores();
+});
 
 
