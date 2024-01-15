@@ -2,17 +2,18 @@ const questionContainerEl = document.querySelector('#questions');
 const startQuizButtonEl = document.querySelector('#start');
 const timerEl = document.querySelector('#time');
 const timerTextEl = document.querySelector('.timer');
-const quizButtonsEl = questionContainerEl.querySelectorAll('.button');
+const quizButtonsEl = document.querySelector('.questionChoices')
 
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft = 60
 const question = questions[currentQuestionIndex];
 // timer
 
 function countdown () {
 
-let timeLeft = 60
+
 
 
 const timeInterval = setInterval(function () {
@@ -32,6 +33,7 @@ const timeInterval = setInterval(function () {
 function startQuiz (event) {
     currentQuestionIndex = 0;
     timeLeft = 60;
+    score = 0;
     countdown();
     addQuestion(questions[currentQuestionIndex]);
     startQuizButtonEl.style.display = 'none';
@@ -39,7 +41,25 @@ function startQuiz (event) {
 
 }
 
+
+function checkAnswer (selectedChoice) {
+    let correctAnswer = questions[currentQuestionIndex].answer
+
+    if (selectedChoice === correctAnswer){
+        score+= 10;
+    } else {
+        timeLeft-= 10;
+
+        if (timeLeft < 0) {
+            timeLeft = 0; endQuiz();
+        }
+    }
+    }
+
+
+
 function changeQuestion () {
+
     // when button is clicked, check whether or not it is the correct answer.
     // if answer is incorrect, then remove 10 seconds from time remaining.
     // if answer is correct, incremement the score variable by 1. (if choices === answer, then score++.)
@@ -66,6 +86,10 @@ function addQuestion (question) {
         choiceElement.textContent = choice;
         questionChoices.appendChild(choiceElement);
         choiceElement.classList.add("questionChoices")
+
+        choiceElement.addEventListener("click", function() {
+            checkAnswer(choice);
+        });
     });
 
 
