@@ -56,6 +56,7 @@ function endQuiz () {
     questionContainerEl.classList.add("hide");
     endScreenEl.classList.remove("hide");
     finalScoreEl.textContent = score;
+    timeLeft = 0;
 }
 
 // Provide Feedback function, which checks to see if the selected choice matches the answer and tells the user if they were right or wrong.
